@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud con Django</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/cosmo/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container">
+          <a class="navbar-brand" href="/">Crud con Django</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a href="/tasks" class="nav-link active">Tasks Pending</a></li>
+              {% if user.is_authenticated %}
+                  <li class="nav-item"><a href="/logout" class="nav-link active">LogOut</a></li>
+                  <li class="nav-item"><a href="/tasks/completed" class="nav-link active">Tasks Completed</a></li>
+                  <li class="nav-item"><a href="/tasks/create" class="nav-link active">Create Task</a></li>
+              {% else %}
+                  <li class="nav-item"><a href="/singup" class="nav-link active">Singup</a></li>
+                  <li class="nav-item"><a href="/signin" class="nav-link active">Signin</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+   
+    {%  block body %}
+    <main class="container py-5">
+      <section class="card card-body">
+        <h2 class="display-1 text-center text-success">Crud basico con Django</h2>
+        <p>Crud Basico con django poniendo en practica el manejo de solicitudes, renderizacion de plantillas, formularios, esta diseñado con Boostrap</p>
+
+           <div class="text-center">
+            <a href="/signin/" class="btn btn-dark">Sigin</a>
+            <a href="/singup/" class="btn btn-light">Singup</a>
+           </div>
+      </section>
+    </main>
+     
+        
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{%block body%}
+    <main class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 mt-5">
+                <h1 class="text-secondary">{{task.title}}</h1>
+                <form method="post">
+                    {{error}}
+                    {%csrf_token%}
+                    {{form.as_p}}
+                    <input type="submit" value="Actualizar tarea" class="btn btn-success">
+                </form>
+
+                <form action="{% url 'complete_task' task.id %}" method="post">
+                    {%csrf_token%}
+                    <input type="submit" value="Completar tarea" class="btn btn-info">
+                </form>
+                <form action="{% url 'delete_task' task.id %}" method="post">
+                    {%csrf_token%}
+                    <input type="submit" value="Eliminar tarea" class="btn btn-danger">
+                </form>
+            </div>
+        </div>
+    </main>
+    
+{% endblock %}

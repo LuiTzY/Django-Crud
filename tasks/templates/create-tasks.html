@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block body%}
+    {{error}}
+    <main class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 mt-5">
+
+                <form method="post" class="card card-body">
+                    <h1 class="fw-bold">Crear tarea</h1>
+                    {%csrf_token%}
+                    <div class="form-group">
+                        {{form.as_p}}
+
+                    </div>
+                    <input type="submit" value="Enviar" class="btn btn-primary">
+                </form>
+
+            </div>
+        </div>
+    </main>
+    
+{% endblock%}
